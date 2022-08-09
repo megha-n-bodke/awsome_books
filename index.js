@@ -4,6 +4,7 @@ const submitbtn = document.getElementById("submitbtn");
 const displayTitle = document.getElementById("displayTitle");
 const displayAuthor = document.getElementById("displayAuthor");
 const remove = document.getElementById("removebtn");
+const bookName = document.getElementById("bookName");
 
 /* Book add functionality */
 submitbtn.addEventListener("click", () => {
@@ -24,4 +25,9 @@ submitbtn.addEventListener("click", () => {
 /* Remove book functionality */
 remove.addEventListener("click", () => {
   alert("remove clicked");
+  books = JSON.parse(localStorage.getItem("booksInformation"));
+  console.log(books);
+  books = books.splice(bookName.value, 1);
+  localStorage.setItem("booksInformation", JSON.stringify(books));
+  /* console.log(books); */
 });
