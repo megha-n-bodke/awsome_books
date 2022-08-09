@@ -2,29 +2,17 @@ const bookTitle = document.getElementById("title");
 const author = document.getElementById("author");
 const submitbtn = document.getElementById("submitbtn");
 
-submitbtn.addEventListener("click", function (e) {
-  /* alert(bookTitle.value); */
-  /* books.push({ title: bookTitle.value, author: author.value });
-  alert("book added");
-  /*   console.log(books.pop()); */
-  /* console.log(books);  */
+submitbtn.addEventListener("click", () => {
+  let books = [];
 
-  const books = [
-    {
-      title: "yayati",
-      author: "ranjit desaie",
-    },
-    {
-      title: "mrutyunjay",
-      author: "p.deshpande",
-    },
-  ];
+  if (localStorage.getItem("booksInformation")) {
+    alert("in if block");
+    books = JSON.parse(localStorage.getItem("booksInformation"));
+    console.log(books);
+    books.push({ title: bookTitle.value, author: author.value });
+  } else {
+    alert("something wrong");
+  }
 
-  /*   var singleBook = { title: bookTitle.value, author: author.value };
-   */ /*   books = JSON.parse(localStorage.getItem(booksinfo));
-   */ /*    books.push(singleBook);
-   */ /*   console.log(books);
-   */ books = window.localStorage.getItem("booksInformation");
-  books.push(books);
-  window.localStorage.setItem("booksInformation", JSON.stringify(books));
+  localStorage.setItem("booksInformation", JSON.stringify(books));
 });
