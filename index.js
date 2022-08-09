@@ -12,22 +12,39 @@ submitbtn.addEventListener('click', () => {
   if (localStorage.getItem('booksInformation')) {
     books = JSON.parse(localStorage.getItem('booksInformation'));
     books.push({ title: bookTitle.value, author: author.value });
-  } else {
+  } /* else {
     books.push({ title: bookTitle.value, author: author.value });
     displayTitle.innerText = bookTitle.value;
     displayTitle.innerText = displayAuthor.value;
+<<<<<<< HEAD
   }
   localStorage.setItem('booksInformation', JSON.stringify(books));
+=======
+  } */
+  localStorage.setItem("booksInformation", JSON.stringify(books));
+>>>>>>> 93a3e6fb2e50ccc045d4376045036f6205c6245c
   displayTitle.innerText = bookTitle.value;
   displayAuthor.innerText = author.value;
 });
 
 /* Remove book functionality */
+<<<<<<< HEAD
 remove.addEventListener('click', () => {
   books = JSON.parse(localStorage.getItem('booksInformation'));
+=======
+remove.addEventListener("click", () => {
+  books = JSON.parse(localStorage.getItem("booksInformation"));
+  console.log(bookName.value);
+>>>>>>> 93a3e6fb2e50ccc045d4376045036f6205c6245c
   console.log(books);
-  books = books.splice(bookName.value, 1);
-  console.log(books);
-  /*   localStorage.setItem("booksInformation", JSON.stringify(books));
-   */
+  books.map((book, index) => {
+    console.log("inside map");
+    if (book.title === bookName.value) {
+      console.log("insideif");
+      console.log(index);
+      books.splice(index, 1);
+      console.log(books);
+    }
+    localStorage.setItem("booksInformation", JSON.stringify(books));
+  });
 });
