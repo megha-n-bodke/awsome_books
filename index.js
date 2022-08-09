@@ -1,33 +1,33 @@
-const bookTitle = document.getElementById('title');
-const author = document.getElementById('author');
-const submitbtn = document.getElementById('submitbtn');
-const displayTitle = document.getElementById('displayTitle');
-const displayAuthor = document.getElementById('displayAuthor');
-const remove = document.getElementById('removebtn');
-const bookName = document.getElementById('bookName');
+const bookTitle = document.getElementById("title");
+const author = document.getElementById("author");
+const submitbtn = document.getElementById("submitbtn");
+const displayTitle = document.getElementById("displayTitle");
+const displayAuthor = document.getElementById("displayAuthor");
+const remove = document.getElementById("removebtn");
+const bookName = document.getElementById("bookName");
 
 /* Book add functionality */
-submitbtn.addEventListener('click', () => {
+submitbtn.addEventListener("click", () => {
   let books = [];
-  if (localStorage.getItem('booksInformation')) {
-    books = JSON.parse(localStorage.getItem('booksInformation'));
+  if (localStorage.getItem("booksInformation")) {
+    books = JSON.parse(localStorage.getItem("booksInformation"));
     books.push({ title: bookTitle.value, author: author.value });
-    displayTitle.innerText = bookTitle.value;
-    displayTitle.innerText = displayAuthor.value;
   } else {
     books.push({ title: bookTitle.value, author: author.value });
     displayTitle.innerText = bookTitle.value;
     displayTitle.innerText = displayAuthor.value;
-    /* alert('something wrong'); */
   }
-  localStorage.setItem('booksInformation', JSON.stringify(books));
+  localStorage.setItem("booksInformation", JSON.stringify(books));
+  displayTitle.innerText = bookTitle.value;
+  displayAuthor.innerText = author.value;
 });
 
 /* Remove book functionality */
-remove.addEventListener('click', () => {
-  books = JSON.parse(localStorage.getItem('booksInformation'));
-  /* console.log(books); */
+remove.addEventListener("click", () => {
+  books = JSON.parse(localStorage.getItem("booksInformation"));
+  console.log(books);
   books = books.splice(bookName.value, 1);
-  localStorage.setItem('booksInformation', JSON.stringify(books));
-  /* console.log(books); */
+  console.log(books);
+  /*   localStorage.setItem("booksInformation", JSON.stringify(books));
+   */
 });
