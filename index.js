@@ -1,17 +1,17 @@
-const bookTitle = document.getElementById('title');
-const author = document.getElementById('author');
-const submitbtn = document.getElementById('submitbtn');
-const displayDiv = document.getElementById('display');
+const bookTitle = document.getElementById("title");
+const author = document.getElementById("author");
+const submitbtn = document.getElementById("submitbtn");
+const displayDiv = document.getElementById("display");
 
 /* display data */
-let contentDiv = '';
+let contentDiv = "";
 let books = [];
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const display = () => {
-    if (localStorage.getItem('booksInformation')) {
-      books = JSON.parse(localStorage.getItem('booksInformation'));
+    if (localStorage.getItem("booksInformation")) {
+      books = JSON.parse(localStorage.getItem("booksInformation"));
     } else {
-      localStorage.setItem('booksInformation', JSON.stringify(books));
+      localStorage.setItem("booksInformation", JSON.stringify(books));
     }
 
     books.map((singlebook, index) => {
@@ -26,34 +26,32 @@ document.addEventListener('DOMContentLoaded', () => {
     displayDiv.innerHTML = contentDiv;
   };
 
-  submitbtn.addEventListener('click', () => {
-    if (bookTitle.value === '' || author.value === '') {
-      alert('please enter data');
+  submitbtn.addEventListener("click", () => {
+    if (bookTitle.value === "" || author.value === "") {
     } else {
-      if (localStorage.getItem('booksInformation') === null) {
+      if (localStorage.getItem("booksInformation") === null) {
         books.push({ title: bookTitle.value, author: author.value });
-        localStorage.setItem('booksInformation', JSON.stringify(books));
+        localStorage.setItem("booksInformation", JSON.stringify(books));
       } else {
-        books = JSON.parse(localStorage.getItem('booksInformation'));
+        books = JSON.parse(localStorage.getItem("booksInformation"));
         books.push({ title: bookTitle.value, author: author.value });
-        localStorage.setItem('booksInformation', JSON.stringify(books));
+        localStorage.setItem("booksInformation", JSON.stringify(books));
       }
 
-      contentDiv = '';
+      contentDiv = "";
       displayDiv.innerHTML = contentDiv;
-      alert('data submitted successfully');
-      bookTitle.value = '';
-      author.value = '';
+      bookTitle.value = "";
+      author.value = "";
       display();
     }
   });
   display();
 
   removeDiv = (id) => {
-    books = JSON.parse(localStorage.getItem('booksInformation'));
+    books = JSON.parse(localStorage.getItem("booksInformation"));
     books.splice(id, 1);
-    localStorage.setItem('booksInformation', JSON.stringify(books));
-    contentDiv = '';
+    localStorage.setItem("booksInformation", JSON.stringify(books));
+    contentDiv = "";
     displayDiv.innerHTML = contentDiv;
     display();
   };
