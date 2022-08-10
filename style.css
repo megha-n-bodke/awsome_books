@@ -7,7 +7,6 @@
 
 .dataFields {
   margin-bottom: 10px;
-  margin-bottom: 10px;
 }
 
 hr {
@@ -20,4 +19,8 @@ h1 {
 
 h2 {
   margin: 5px;
+}
+
+.error {
+  color: red;
 }
