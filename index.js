@@ -108,7 +108,7 @@ class SingleBook {
     books.map((singlebook, index) => {
       contentDiv += `
                 <div class = "data">
-                <p >${singlebook.name} by ${singlebook.author}</p>
+                <p >"${singlebook.name}" by ${singlebook.author}</p>
                 <button id="btn" onclick='removeDiv(${index})'>Remove</button>
                 </div>
                 
