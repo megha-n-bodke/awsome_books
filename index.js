@@ -5,65 +5,6 @@ const displayDiv = document.getElementById("display");
 const errorMsg = document.getElementById("emptySpan");
 let contentDiv = "";
 
-/* const displayDiv = document.getElementById("display");
- */
-/* display data */
-/* let contentDiv = "";
-let books = [];
-document.addEventListener("DOMContentLoaded", () => {
-  const display = () => {
-    if (localStorage.getItem("booksInformation")) {
-      books = JSON.parse(localStorage.getItem("booksInformation"));
-    } else {
-      localStorage.setItem("booksInformation", JSON.stringify(books));
-    }
-
-    books.map((singlebook, index) => {
-      contentDiv += `
-                <h1>${singlebook.title}</h1>
-                <h2>${singlebook.author}</h2>
-                <button id="btn" onclick='removeDiv(${index})'>Remove</button>
-              <hr/>`;
-
-      return contentDiv;
-    });
-    displayDiv.innerHTML = contentDiv;
-  };
-
-  submitbtn.addEventListener("click", () => {
-    if (bookTitle.value === "" || author.value === "") {
-      alert("please enter data");
-    } else {
-      if (localStorage.getItem("booksInformation") === null) {
-        books.push({ title: bookTitle.value, author: author.value });
-        localStorage.setItem("booksInformation", JSON.stringify(books));
-      } else {
-        books = JSON.parse(localStorage.getItem("booksInformation"));
-        books.push({ title: bookTitle.value, author: author.value });
-        localStorage.setItem("booksInformation", JSON.stringify(books));
-      }
-
-      contentDiv = "";
-      displayDiv.innerHTML = contentDiv;
-      alert("data submitted successfully");
-      bookTitle.value = "";
-      author.value = "";
-      display();
-    }
-  });
-  display();
-
-  removeDiv = (id) => {
-    books = JSON.parse(localStorage.getItem("booksInformation"));
-    books.splice(id, 1);
-    localStorage.setItem("booksInformation", JSON.stringify(books));
-    contentDiv = "";
-    displayDiv.innerHTML = contentDiv;
-    display();
-  };
-});
- */
-
 /* class declaration for book */
 let books = [];
 class SingleBook {
@@ -74,12 +15,14 @@ class SingleBook {
 
   /* Book add functionality */
   addBook() {
-    let bookName = bookTitle.value;
-    let authorName = author.value;
+    const bookName = bookTitle.value;
+    const authorName = author.value;
     const book = new SingleBook(bookName, authorName);
 
     /* store in localstorage */
-    if (localStorage.getItem("booksInfo") === null) {
+    if (bookTitle.value === "" || author.value === "") {
+      errorMsg.innerText = "please enter data";
+    } else if (localStorage.getItem("booksInfo") === null) {
       books.push(book);
       localStorage.setItem("booksInfo", JSON.stringify(books));
     } else {
@@ -89,7 +32,6 @@ class SingleBook {
     }
 
     contentDiv = "";
-    alert("data submitted successfully");
     bookTitle.value = "";
     author.value = "";
     displayDiv.innerHTML = contentDiv;
@@ -111,7 +53,6 @@ class SingleBook {
                 <p >"${singlebook.name}" by ${singlebook.author}</p>
                 <button id="btn" onclick='removeDiv(${index})'>Remove</button>
                 </div>
-                
               `;
 
       return contentDiv;
