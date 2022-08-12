@@ -65,6 +65,7 @@ class SingleBook {
     books = JSON.parse(localStorage.getItem('booksInfo'));
     books.splice(id, 1);
     localStorage.setItem('booksInfo', JSON.stringify(books));
+
     contentDiv = '';
     displayDiv.innerHTML = contentDiv;
     this.display();
