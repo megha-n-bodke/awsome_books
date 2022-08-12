@@ -1,9 +1,9 @@
-const bookTitle = document.getElementById("title");
-const author = document.getElementById("author");
-const submitbtn = document.getElementById("submitbtn");
-const displayDiv = document.getElementById("display");
-const errorMsg = document.getElementById("emptySpan");
-let contentDiv = "";
+const bookTitle = document.getElementById('title');
+const author = document.getElementById('author');
+const submitbtn = document.getElementById('submitbtn');
+const displayDiv = document.getElementById('display');
+const errorMsg = document.getElementById('emptySpan');
+let contentDiv = '';
 
 /* class declaration for book */
 let books = [];
@@ -20,31 +20,31 @@ class SingleBook {
     const book = new SingleBook(bookName, authorName);
 
     /* store in localstorage */
-    if (bookTitle.value === "" || author.value === "") {
-      errorMsg.innerText = "please enter data";
-    } else if (localStorage.getItem("booksInfo") === null) {
+    if (bookTitle.value === '' || author.value === '') {
+      errorMsg.innerText = 'please enter data';
+    } else if (localStorage.getItem('booksInfo') === null) {
       books.push(book);
-      localStorage.setItem("booksInfo", JSON.stringify(books));
+      localStorage.setItem('booksInfo', JSON.stringify(books));
     } else {
-      books = JSON.parse(localStorage.getItem("booksInfo"));
+      books = JSON.parse(localStorage.getItem('booksInfo'));
       books.push(book);
-      localStorage.setItem("booksInfo", JSON.stringify(books));
+      localStorage.setItem('booksInfo', JSON.stringify(books));
     }
 
-    contentDiv = "";
-    bookTitle.value = "";
-    author.value = "";
+    contentDiv = '';
+    bookTitle.value = '';
+    author.value = '';
     displayDiv.innerHTML = contentDiv;
     this.display();
   }
 
   /* display  localstorage data */
   display() {
-    if (localStorage.getItem("booksInfo")) {
-      books = JSON.parse(localStorage.getItem("booksInfo"));
+    if (localStorage.getItem('booksInfo')) {
+      books = JSON.parse(localStorage.getItem('booksInfo'));
     } else {
-      alert("in else block");
-      localStorage.setItem("booksInfo", JSON.stringify(books));
+      alert('in else block');
+      localStorage.setItem('booksInfo', JSON.stringify(books));
     }
 
     books.map((singlebook, index) => {
@@ -62,23 +62,23 @@ class SingleBook {
 
   /* remove book functionality */
   remove(id) {
-    books = JSON.parse(localStorage.getItem("booksInfo"));
+    books = JSON.parse(localStorage.getItem('booksInfo'));
     books.splice(id, 1);
-    localStorage.setItem("booksInfo", JSON.stringify(books));
-    contentDiv = "";
+    localStorage.setItem('booksInfo', JSON.stringify(books));
+    contentDiv = '';
     displayDiv.innerHTML = contentDiv;
     this.display();
   }
 }
 
 /* on page load display data of local storage */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   const book = new SingleBook();
   book.display();
 });
 
 /* add book functionality */
-submitbtn.addEventListener("click", () => {
+submitbtn.addEventListener('click', () => {
   const book = new SingleBook();
   book.addBook();
 });
