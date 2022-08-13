@@ -114,3 +114,7 @@ input {
 .remove-books {
   display: none;
 }
+
+.error {
+  color: red;
+}
