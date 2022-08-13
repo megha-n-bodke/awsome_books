@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
   removeDiv = (id) => {
     const book = new SingleBook();
     book.remove(id);
+
   };
 
   booklink.addEventListener('click', () => {
