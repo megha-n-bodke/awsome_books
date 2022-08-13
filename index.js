@@ -69,6 +69,7 @@ class SingleBook {
     booklink.style.color = 'blue';
     displayDiv.innerHTML = contentDiv;
   }
+  
   remove(id) {
     books = JSON.parse(localStorage.getItem('booksInfo'));
     books.splice(id, 1);
