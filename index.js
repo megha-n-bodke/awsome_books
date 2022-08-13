@@ -1,26 +1,32 @@
-const bookTitle = document.getElementById('title');
+const contact = document.getElementById("contact-details");
+const links = document.querySelectorAll(".links");
+console.log(links);
+
+/* remove book functionality */
+
+/* const bookTitle = document.getElementById('title');
 const author = document.getElementById('author');
 const submitbtn = document.getElementById('submitbtn');
 const displayDiv = document.getElementById('display');
 const errorMsg = document.getElementById('emptySpan');
 let contentDiv = '';
-
+ */
 /* class declaration for book */
-let books = [];
+/* let books = [];
 class SingleBook {
   constructor(name, author) {
     this.name = name;
     this.author = author;
   }
-
-  /* Book add functionality */
-  addBook() {
+ */
+/* Book add functionality */
+/*   addBook() {
     const bookName = bookTitle.value;
     const authorName = author.value;
-    const book = new SingleBook(bookName, authorName);
+    const book = new SingleBook(bookName, authorName); */
 
-    /* store in localstorage */
-    if (bookTitle.value === '' || author.value === '') {
+/* store in localstorage */
+/* if (bookTitle.value === '' || author.value === '') {
       errorMsg.innerText = 'please enter data';
     } else if (localStorage.getItem('booksInfo') === null) {
       books.push(book);
@@ -37,9 +43,9 @@ class SingleBook {
     displayDiv.innerHTML = contentDiv;
     this.display();
   }
-
-  /* display  localstorage data */
-  display() {
+ */
+/* display  localstorage data */
+/*  display() {
     if (localStorage.getItem('booksInfo')) {
       books = JSON.parse(localStorage.getItem('booksInfo'));
     } else {
@@ -60,8 +66,8 @@ class SingleBook {
     displayDiv.innerHTML = contentDiv;
   }
 
-  /* remove book functionality */
-  remove(id) {
+ */
+/* remove(id) {
     books = JSON.parse(localStorage.getItem('booksInfo'));
     books.splice(id, 1);
     localStorage.setItem('booksInfo', JSON.stringify(books));
@@ -69,21 +75,22 @@ class SingleBook {
     displayDiv.innerHTML = contentDiv;
     this.display();
   }
-}
+} */
 
 /* on page load display data of local storage */
-document.addEventListener('DOMContentLoaded', () => {
+/* document.addEventListener('DOMContentLoaded', () => {
   const book = new SingleBook();
   book.display();
 });
-
+ */
 /* add book functionality */
-submitbtn.addEventListener('click', () => {
+/* submitbtn.addEventListener('click', () => {
   const book = new SingleBook();
   book.addBook();
 });
-
-removeDiv = (id) => {
+ */
+/* removeDiv = (id) => {
   const book = new SingleBook();
   book.remove(id);
 };
+ */
