@@ -1,3 +1,12 @@
+const contact = document.getElementById('contact-details');
+const form = document.getElementById('books-form');
+const booksDetails = document.getElementById('book-display');
+const booklink = document.getElementById('bookList');
+const formlink = document.getElementById('addBook');
+const contactLink = document.getElementById('contact');
+
+/* remove book functionality */
+
 const bookTitle = document.getElementById('title');
 const author = document.getElementById('author');
 const submitbtn = document.getElementById('submitbtn');
@@ -57,18 +66,47 @@ class SingleBook {
 
       return contentDiv;
     });
+    booklink.style.color = 'blue';
     displayDiv.innerHTML = contentDiv;
   }
-
-  /* remove book functionality */
   remove(id) {
     books = JSON.parse(localStorage.getItem('booksInfo'));
     books.splice(id, 1);
     localStorage.setItem('booksInfo', JSON.stringify(books));
-
     contentDiv = '';
     displayDiv.innerHTML = contentDiv;
     this.display();
+  }
+
+  /* display books */
+  displayBooks() {
+    booksDetails.classList.add('show-books');
+    booksDetails.classList.remove('remove-books');
+    form.classList.remove('show-form');
+    contact.classList.remove('show-contact');
+    booklink.style.color = 'blue';
+    formlink.style.color = 'black';
+    contactLink.style.color = 'black';
+  }
+
+  displayForm() {
+    booksDetails.classList.remove('show-books');
+    booksDetails.classList.add('remove-books');
+    form.classList.add('show-form');
+    contact.classList.remove('show-contact');
+    booklink.style.color = 'black';
+    formlink.style.color = 'blue';
+    contactLink.style.color = 'black';
+  }
+
+  displayContact() {
+    booksDetails.classList.remove('show-books');
+    booksDetails.classList.add('remove-books');
+    form.classList.remove('show-form');
+    contact.classList.add('show-contact');
+    booklink.style.color = 'black';
+    formlink.style.color = 'black';
+    contactLink.style.color = 'blue';
   }
 }
 
@@ -76,6 +114,32 @@ class SingleBook {
 document.addEventListener('DOMContentLoaded', () => {
   const book = new SingleBook();
   book.display();
+
+  /* add book functionality */
+  submitbtn.addEventListener('click', () => {
+    const book = new SingleBook();
+    book.addBook();
+  });
+
+  removeDiv = (id) => {
+    const book = new SingleBook();
+    book.remove(id);
+  };
+
+  booklink.addEventListener('click', () => {
+    const book = new SingleBook();
+    book.displayBooks();
+  });
+
+  formlink.addEventListener('click', () => {
+    const book = new SingleBook();
+    book.displayForm();
+  });
+
+  contactLink.addEventListener('click', () => {
+    const book = new SingleBook();
+    book.displayContact();
+  });
 });
 
 /* add book functionality */
