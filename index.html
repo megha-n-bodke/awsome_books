@@ -17,9 +17,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">List </a> </li>
-                <li><a href="#">Add New</a></li>
-                <a> <a href="#">Contact</a></li>
+                <li class="links" id="bookList">List</li>
+                <li class="links" id="addBook">Add New</li>
+                <li class="links" id="contact">Contact</li>
             </ul>
         </nav>
     </header>
@@ -28,17 +28,16 @@
             13 aug 2022
     </div>
     </p>
-    <section class="booksPage">
-        <!-- display dynamic content -->
-        <section class="bookdata" id="book-display">
-            <div id="display" class="dataForm">
 
-            </div>
-        </section>
+    <!-- display dynamic content -->
+    <section class="bookdata" id="book-display">
+        <div id="display" class="dataForm">
+
+        </div>
     </section>
 
     <!-- book entry form -->
-    <section class="dataForm" id="books-form">
+    <section class="contactSec" id="books-form">
         <h1>Add A New Book</h1>
         <form action="#">
             <input type="text" placeholder="Title" id="title" class="dataFields"><br />
@@ -48,12 +47,12 @@
         </form>
     </section>
 
-
+    <!-- Contact section -->
     <section class="contact-section " id="contact-details">
         <h1>Contact Information</h1>
         <div>
             <p>Do you have any questions or you just want to say "Hello" ?,br /> You can contact out of us!</p>
-            <ul class="links">
+            <ul>
                 <li>Our email mail@mail.com</li>
                 <li>Our Phone. no:00438652387</li>
                 <li>Our address: Streetname 22, 85403 City, Country</li>
