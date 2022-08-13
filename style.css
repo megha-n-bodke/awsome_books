@@ -14,6 +14,7 @@
   justify-content: space-between;
   align-content: center;
   list-style: none;
+  padding-right: 20px;
 }
 
 .header-section ul li {
@@ -69,6 +70,7 @@
   font-size: 18px;
   font-weight: 400;
   border: 1px solid black;
+  padding: 0 20px;
 }
 
 #btn {
@@ -88,7 +90,11 @@ input {
 .footer-section {
   border: 1px solid black;
   width: 80%;
-  margin: 0 auto;
+  margin: 40px auto;
+}
+
+.footer-section p {
+  padding: 0 20px;
 }
 
 .contact-section {
@@ -117,4 +123,8 @@ input {
 
 .error {
   color: red;
+}
+
+.nav-header {
+  padding: 0 20px;
 }
