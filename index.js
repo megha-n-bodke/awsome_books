@@ -69,7 +69,6 @@ class SingleBook {
     booklink.style.color = 'blue';
     displayDiv.innerHTML = contentDiv;
   }
-
   remove(id) {
     books = JSON.parse(localStorage.getItem('booksInfo'));
     books.splice(id, 1);
@@ -142,3 +141,14 @@ document.addEventListener('DOMContentLoaded', () => {
     book.displayContact();
   });
 });
+
+/* add book functionality */
+submitbtn.addEventListener('click', () => {
+  const book = new SingleBook();
+  book.addBook();
+});
+
+removeDiv = (id) => {
+  const book = new SingleBook();
+  book.remove(id);
+};
